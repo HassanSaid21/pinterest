@@ -1,0 +1,146 @@
+.createPage {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-direction: column;
+  margin-right: 48px;
+}
+
+.createTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgb(222, 219, 219);
+  border-bottom: 1px solid rgb(222, 219, 219);
+  padding: 12px 4px;
+}
+
+.createTop h1 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.createTop button {
+  border: none;
+  background: rgb(151, 0, 0);
+  border-radius: 16px;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.createTop button:hover {
+  background: #d50a0a;
+}
+
+.createBottom {
+  display: flex;
+  gap: 64px;
+  justify-content: center;
+}
+
+.upload {
+  cursor: pointer;
+  background: rgba(205, 205, 205, 0.315);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed gray;
+  font-size: 18px;
+  height: 474px;
+  width: 375px;
+  padding: 16px;
+  position: relative;
+}
+
+.uploadTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.uploadInfo {
+  position: absolute;
+  bottom: 32px;
+  color: gray;
+  font-size: 13px;
+  text-align: center;
+}
+
+.createForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 584px;
+}
+
+.createFormItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.createFormItem label {
+  font-size: 13px;
+  color: gray;
+}
+
+.createFormItem select {
+  font-size: 15px;
+  border: 2px solid rgb(225, 225, 225);
+  padding: 8px;
+  border-radius: 16px;
+  outline-color: green;
+}
+
+.createFormItem input {
+  font-size: 15px;
+  border: 2px solid rgb(225 , 225 ,225);
+  padding: 8px;
+  border-radius: 16px;
+  outline-color: green;
+}
+
+.createFormItem textarea {
+  font-size: 15px;
+  border: 2px solid rgb(225, 225, 225);
+  padding: 8px;
+  border-radius: 16px;
+  outline-color: green;
+  resize: none;
+}
+
+.createFormItem small {
+  color: rgb(154, 153, 153);
+  font-size: 13px;
+}
+
+@media (max-width:1104px) {
+  .createBottom {
+    flex-direction: column;
+    align-items: center;
+  margin-bottom: 32px;
+
+  }
+}
+
+@media (max-width:768px) {
+  .createForm {
+    width: 100%;
+  }
+  .createPage {
+    margin-right: 16px;
+  }
+}
+
+
+@media (max-width:475px) {
+  .upload {
+    width: 100%;
+  }
+}

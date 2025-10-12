@@ -1,0 +1,61 @@
+.postPage {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+.postContainer {
+  display: flex;
+  width: 70%;
+  border: 1px solid rgb(177, 175, 175);
+  border-radius: 32px;
+  overflow: hidden;
+  max-height: 80vh;
+}
+.postImg {
+  background-color: #c0a68c;
+}
+
+.postImg img {
+  width: 100%;
+  object-fit: contain;
+  height: 100%;
+}
+
+.postDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.postUser {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.postUser img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.postUser span {
+  font-size: 14px;
+}
+
+@media (max-width: 1127px) {
+  .postContainer {
+    width: 100%;
+    margin-right: 24px;
+  }
+}
+
+@media (max-width: 751px) {
+  .postContainer {
+    flex-direction: column;
+    max-height: unset;
+  }
+}

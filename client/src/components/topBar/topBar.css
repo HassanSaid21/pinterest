@@ -1,0 +1,39 @@
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0px;
+  gap: 16px;
+}
+
+.search {
+  padding: 16px;
+  background-color: #f1f1f1;
+  height: 40px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-radius: 16px;
+  flex: 1;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+}
+.search input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  flex: 1;
+  font-size: 18px;
+}
+
+
+@media (max-width :475px) {
+
+  .topBar {
+    /* width: 90%; */
+    margin-right: 16px;
+  }
+}

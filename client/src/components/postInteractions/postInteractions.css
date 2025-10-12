@@ -1,0 +1,26 @@
+.postInteractions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.interactionIcons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.postInteractions button {
+  background: rgb(172, 7, 7);
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.postInteractions button:hover {
+  color: #f1f1f1;
+  background: rgb(255, 5, 5);
+}

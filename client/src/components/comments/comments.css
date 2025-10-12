@@ -1,0 +1,100 @@
+/* comments.css */
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1; /* take remaining space in parent (.postDetails) */
+  min-height: 0; /* allow children with overflow to shrink */
+}
+
+/* The area that scrolls */
+.commentList {
+  flex: 1; /* IMPORTANT: makes list take available vertical space */
+  overflow-y: auto; /* only this area scrolls */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 8px; /* space for scrollbar so content won't be hidden */
+}
+
+/* individual comment */
+.comment {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* avatar image */
+.comment img,
+.comment > img,
+.comment .imagekit-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* comment text block */
+.commentContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.commentUsername {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.commentText {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.commentDate {
+  font-size: 12px;
+  color: #888;
+}
+
+/* bottom form stays visible */
+.commentForm {
+  background-color: #f1f1f1;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 24px;
+}
+
+.commentForm input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 8px;
+  border-radius: 16px;
+  background-color: transparent;
+  font-size: 16px;
+}
+
+.emoji {
+  cursor: pointer;
+  position: relative;
+}
+
+.emojiPicker {
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+}
+
+/* Optional: nicer scrollbar for webkit browsers */
+.commentList::-webkit-scrollbar {
+  width: 8px;
+}
+.commentList::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}

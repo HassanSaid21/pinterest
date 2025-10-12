@@ -1,0 +1,44 @@
+.leftBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-items: center;
+  width: 72px;
+  padding: 16px 0px;
+  border-right: 1px solid rgb(204, 203, 203);
+  gap: 30px;
+}
+
+.menuIcons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.menuIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.menuIcon img  {
+  width: 20px;
+  height: 20px;
+}
+
+.menuIcon:hover {
+  background-color: #f1f1f1;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+}

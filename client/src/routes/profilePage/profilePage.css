@@ -1,0 +1,81 @@
+.profilePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-right: 16px;
+}
+.profilePage .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.profileName {
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.profileUsername {
+  color: rgb(71, 71, 71);
+  font-size: 14px;
+}
+
+.profileCounts {
+  font-size: 14px;
+  font-weight: 600;
+}
+.profileInterations {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.images {
+  width: 100%;
+}
+
+.profileButtons button:first-child {
+  background: #f9e6e6;
+  color: black;
+  margin-right: 8px;
+  border-radius: 16px;
+  padding: 8px 16px;
+  border: none;
+cursor: pointer;
+font-weight: 500;
+}
+.profileButtons button:last-child {
+  background: rgb(121, 0, 0);
+  color: white;
+  border-radius: 16px;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.profileButtons button:last-child:hover {
+  background: rgb(164, 1, 1);
+
+}
+.profileOptions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.profileOptions span {
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.profileOptions span:hover {
+  color: gray;
+}
+
+.active {
+  border-bottom: 3px solid black;
+}

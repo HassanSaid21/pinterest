@@ -1,0 +1,75 @@
+/* AuthPage styles */
+.authPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  width: 100vw;
+}
+
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.223);
+  justify-content: center;
+  min-width: 20rem;
+  padding: 24px;
+}
+
+
+.authContainer  h1{
+  font-weight: 500;
+font-size: 25px;
+}
+
+.authContainer form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  width: 100%;
+}
+
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.formGroup label {
+  color: rgb(33, 31, 31);
+  font-size: 14px;
+}
+
+.formGroup input {
+  outline-color: green;
+  border-radius: 8px;
+  border: 2px solid rgb(191, 191, 191);
+  padding: 8px;
+  
+}
+
+.authContainer form button {
+  color: white;
+  background: rgb(186, 5, 5);
+  padding: 12px 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 24px;
+  font-weight: bold;
+
+}
+
+.authContainer form b {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(159, 7, 7);
+}
+.formGroup .error {
+  color: red;
+}

@@ -1,0 +1,12 @@
+.gallery {
+  columns: 190px; /* each column is ~250px wide */
+  column-gap: 12px; /*spacing between columns */
+  margin-right: 16px;
+}
+
+.gallery img {
+  width: 100%;
+  margin-bottom: 12px; /* spacing between stacked images */
+  border-radius: 8px;
+  display: block;
+}
