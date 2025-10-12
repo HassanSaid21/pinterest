@@ -15,7 +15,7 @@ const UserButton = () => {
       />
     
       <ImageKit
-            onClick={() => setOpen((val) => !val)}  
+            onClick={() => setOpen((val) =>!val)}  
         src="/general/arrow.svg"
         alt="drop down "
         className="arrow"
