@@ -7,13 +7,13 @@ const AuthPage = () => {
   return (
     <div className="authPage">
       <div className="authContainer">
-        <ImageKit src="general/logoBig.png"  alt="big logo" />
+        <ImageKit src="general/logoBig.png" alt="big logo" />
         <h1>
           {isRregister ? "Create a new account" : "Login to your account"}
         </h1>
 
         {isRregister ? (
-          <form key='register'>
+          <form key="register">
             <div className="formGroup">
               <label htmlFor="Email">Email</label>
               <input
@@ -31,7 +31,8 @@ const AuthPage = () => {
                 id="username"
                 name="username"
               />
-            </div><div className="formGroup">
+            </div>
+            <div className="formGroup">
               <label htmlFor="name">Name</label>
               <input
                 type="text"
@@ -50,13 +51,14 @@ const AuthPage = () => {
               />
             </div>
             <button type="submit">Register</button>
-            <p >
-              do you have an account ? <b onClick={() => setIsRegister(false)}>Login</b>
+            <p>
+              do you have an account ?{" "}
+              <b onClick={() => setIsRegister(false)}>Login</b>
             </p>
             {error && <p className="error">{error}</p>}
           </form>
         ) : (
-          <form key='login' className="authForm">
+          <form key="login" className="authForm">
             <div className="formGroup">
               <label htmlFor="Email">Email</label>
               <input

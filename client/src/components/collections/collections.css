@@ -8,7 +8,7 @@
 
 .collection {
   margin-bottom: 32px;
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .collection img {
@@ -16,6 +16,7 @@
   height: 80%;
   object-fit: cover;
   border-radius: 16px;
+
 }
 
 .collectionInfo {

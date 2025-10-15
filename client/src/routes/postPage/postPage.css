@@ -35,6 +35,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  width: max-content;
 }
 .postUser img {
   width: 32px;
@@ -44,6 +45,7 @@
 
 .postUser span {
   font-size: 14px;
+  font-weight: 500;
 }
 
 @media (max-width: 1127px) {
@@ -54,6 +56,9 @@
 }
 
 @media (max-width: 751px) {
+  .postPage {
+    gap: 16px;
+  }
   .postContainer {
     flex-direction: column;
     max-height: unset;

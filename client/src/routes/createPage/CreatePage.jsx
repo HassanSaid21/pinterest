@@ -10,14 +10,18 @@ const CreatePage = () => {
       <div className="createBottom">
         <div className="upload">
           <div className="uploadTitle">
-            <ImageKit width={25} height={25} src="/general/upload.svg" alt="upload icon" />
+            <ImageKit
+              width={25}
+              height={25}
+              src="/general/upload.svg"
+              alt="upload icon"
+            />
             <span>Choose a file</span>
-          </div> 
-        
+          </div>
+
           <div className="uploadInfo">
-            {" "}
-            we recommend using high quality .jpeg files less than 20 files less
-            than 200MB
+            we recommend using high quality .jpeg files less than 20 files ,
+            less than 200MB
           </div>
         </div>
         <form action="" className="createForm">
@@ -54,12 +58,7 @@ const CreatePage = () => {
           </div>
           <div className="createFormItem">
             <label htmlFor="tag">Tagged topics</label>
-            <input
-              type="text"
-              id="tag"
-              name="tag"
-              placeholder="Add a tag"
-            />
+            <input type="text" id="tag" name="tag" placeholder="Add a tag" />
             <small>Don&apos;t worry we won&apos;t see your tags </small>
           </div>
         </form>

@@ -9,15 +9,14 @@ const GalleryItem = ({ item }) => {
       <Link to={`/pin/${item._id}`} className="overlay" />
 
       <button className="save">save</button>
-
       <div className="actions">
         <button>
           {" "}
-          <ImageKit src="/general/share.svg" alt="" />
+          <ImageKit src="/general/share.svg" alt="share" />
         </button>
         <button>
           {" "}
-          <ImageKit src="/general/more.svg" alt="" />
+          <ImageKit src="/general/more.svg" alt="more options" />
         </button>
       </div>
     </div>

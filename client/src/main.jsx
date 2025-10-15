@@ -7,7 +7,7 @@ import MainLayout from "./routes/layouts/MainLayout.jsx";
 import Homepage from "./routes/hompage/Homepage.jsx";
 import CreatePage from "./routes/createPage/CreatePage.jsx";
 import AuthPage from "./routes/authpage/AuthPage.jsx";
-import PostPage from "./routes/postpage/Postpage.jsx";
+import PostPage from "./routes/postPage/PostPage.jsx";
 import ProfilePage from "./routes/profilePage/ProfilePage.jsx";
 import SearchPage from "./routes/searchPage/searchPage.jsx";
 import { ImageKitProvider } from "@imagekit/react";
@@ -39,7 +39,6 @@ const queryClient =  new QueryClient()
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-
     <ImageKitProvider urlEndpoint={URL}>
       <RouterProvider router={router} />
     </ImageKitProvider>

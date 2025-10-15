@@ -20,10 +20,9 @@
   padding: 24px;
 }
 
-
-.authContainer  h1{
+.authContainer h1 {
   font-weight: 500;
-font-size: 25px;
+  font-size: 25px;
 }
 
 .authContainer form {
@@ -33,7 +32,6 @@ font-size: 25px;
   align-items: center;
   width: 100%;
 }
-
 
 .formGroup {
   display: flex;
@@ -51,7 +49,6 @@ font-size: 25px;
   border-radius: 8px;
   border: 2px solid rgb(191, 191, 191);
   padding: 8px;
-  
 }
 
 .authContainer form button {
@@ -62,7 +59,6 @@ font-size: 25px;
   border: none;
   border-radius: 24px;
   font-weight: bold;
-
 }
 
 .authContainer form b {

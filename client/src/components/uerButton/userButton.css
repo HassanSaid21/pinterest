@@ -33,11 +33,11 @@
 .userOptionsMenu {
   position: absolute;
   background-color: white;
-  padding: 16px 2px;
+  padding: 16px 3px;
   border-radius: 16px ;
   top: 150% ;
   right: 0;
-  z-index: 99999999;
+  z-index: 999999;
   font-size: 14px;
   font-weight :500 ;
   display: flex;

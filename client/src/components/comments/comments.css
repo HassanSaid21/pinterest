@@ -8,6 +8,10 @@
   min-height: 0; /* allow children with overflow to shrink */
 }
 
+.commentsCount {
+  font-weight: 500;
+}
+
 /* The area that scrolls */
 .commentList {
   flex: 1; /* IMPORTANT: makes list take available vertical space */
@@ -16,13 +20,13 @@
   flex-direction: column;
   gap: 16px;
   padding-right: 8px; /* space for scrollbar so content won't be hidden */
+
 }
 
 /* individual comment */
 .comment {
   display: flex;
   gap: 12px;
-  align-items: flex-start;
 }
 
 /* avatar image */
@@ -41,6 +45,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  
 }
 
 .commentUsername {

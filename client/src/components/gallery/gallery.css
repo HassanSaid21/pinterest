@@ -1,5 +1,5 @@
 .gallery {
-  columns: 190px; /* each column is ~250px wide */
+  columns: 190px; /* each column is ~190px wide */
   column-gap: 12px; /*spacing between columns */
   margin-right: 16px;
 }
