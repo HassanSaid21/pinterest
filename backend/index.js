@@ -6,6 +6,7 @@ import commentRouter from './routes/comment.route.js'
 import boardRouter  from './routes/board.route.js'
 import connectDB from './utils/connectDB.js'
  import cors from 'cors'
+//  import { seedDB } from './utils/seed.js'
 // const express = require('express')
   
 const app = express()
@@ -21,8 +22,10 @@ app.use('/users' , userRouter)
 app.use('/pins' , pinRouter)
 app.use('/comments' , commentRouter)
 app.use('/boards' , boardRouter)
+
 app.listen(3000, async ()=>{
 
 await  connectDB()
   console.log('server running');
+
 })

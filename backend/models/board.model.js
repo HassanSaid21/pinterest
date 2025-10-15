@@ -1,4 +1,4 @@
-import mongoose  , {Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const boardSchema = new mongoose.Schema(
   {
@@ -11,7 +11,7 @@ const boardSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-    }
+    },
   },
   {
     timestamps: true,

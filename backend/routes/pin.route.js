@@ -1,8 +1,9 @@
 import express from 'express'
-import {getPins } from '../controllers/pin.controller.js'
+import {deletePins, getPins } from '../controllers/pin.controller.js'
 
  const router  = express.Router()
 
 router.get('/' ,getPins)
+router.delete('/delete-pins' , deletePins)
 
- export default router 
+ export default router ;
