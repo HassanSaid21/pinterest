@@ -1,6 +1,6 @@
 .galleryItem {
   position: relative;
-  width: 100%;
+  break-inside: avoid;
 }
 .overlay {
   position: absolute;

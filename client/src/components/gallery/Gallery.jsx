@@ -168,34 +168,43 @@ import InfiniteScroll from "react-infinite-scroll-component";
 //   //   height: 1260,
 //   // },
 // ];
+const fetchPins = async ({pageParam , search}) => {
+    let path = `${
+      import.meta.env.VITE_BACKEND_API_ENDPOINT
+    }/pins?cursor=${pageParam}`;
 
-const fetchPins = async (pageParam) => {
-  const res = await axios.get(
-    `${import.meta.env.VITE_BACKEND_API_ENDPOINT}/pins?cursor=${pageParam}`
-  );
-  return res.data;
-};
-const Gallery = () => {
-  const { data, fetchNextPage, hasNextPage, status , isFetchingNextPage } = useInfiniteQuery({
-    queryKey: ["pins"],
-    queryFn: fetchPins,
-    initialPageParam: 0,
-    getNextPageParam: (lastPage, pages) => lastPage.nextCursor ?? false,
-  });
-   console.log(data);
+    if (search) {
+      path = `${
+        import.meta.env.VITE_BACKEND_API_ENDPOINT
+      }/pins?cursor=${pageParam}&&search=${search}`;
+    }
+    const res = await axios.get(path);
+    return res.data;
+  };
+const Gallery = ({ search = "" }) => {
+  
+  const { data, fetchNextPage, hasNextPage, status, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ["pins" , search],
+      queryFn:({pageParam=0})=> fetchPins({pageParam , search}),
+      initialPageParam: 0,
+      getNextPageParam: (lastPage, pages) => lastPage.nextCursor ?? false,
+    });
+  console.log(data);
   if (status === "error") return "error has been occurred";
   if (status === "pending") return "Loading...";
   const allPins = data?.pages.flatMap((page) => page.pins) || [];
+  const uniquePins = Array.from(new Map(allPins.map(pin => [pin._id, pin])).values());
   return (
     <InfiniteScroll
-      dataLength={100}
-      next={() =>!isFetchingNextPage &&  fetchNextPage()}
+      dataLength={allPins.length}
+      next={() => !isFetchingNextPage && fetchNextPage()}
       hasMore={!!hasNextPage}
-      loader={<p >Loading more...</p>}
-      endMessage={<p style={{ textAlign: "center" }}>No more posts!</p>}
+      loader={<h4 style={{ textAlign: "center" }}>Loading more...</h4>}
+      endMessage={<h3 style={{ textAlign: "center" }}>No more posts!</h3>}
     >
       <div className="gallery">
-        {allPins?.map((item) => (
+        {uniquePins?.map((item) => (
           <GalleryItem key={item._id} item={item} />
         ))}
       </div>
