@@ -35,7 +35,7 @@ export const addComment = async (req, res, next) => {
       pin,
       description: desc,
     });
-    console.log(comment);
+
     return res.status(201).json({
       message: "Comment added successfully",
       comment,
