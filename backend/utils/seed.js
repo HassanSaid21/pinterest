@@ -5,7 +5,7 @@ import Comment from "../models/comment.model.js";
 import bcrypt from "bcryptjs";
 import connectDB from "./connectDB.js";
 
-// await connectDB();
+await connectDB();
 
 export const seedDB = async () => {
   await User.deleteMany({});
@@ -75,7 +75,7 @@ export const seedDB = async () => {
   process.exit(0);
 };
 
-// seedDB().catch((error) => {
-//   console.error("Error seeding database:", error);
-//   process.exit(1);
-// });
+seedDB().catch((error) => {
+  console.error("Error seeding database:", error);
+  process.exit(1);
+});

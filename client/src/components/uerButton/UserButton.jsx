@@ -1,21 +1,41 @@
 import { useState } from "react";
 import "./userButton.css";
 import ImageKit from "../imageKit/ImageKit";
+import { apiRequest } from "../../utils/fetch";
+import { toast } from "react-toastify";
+import { Link,  useNavigate } from "react-router";
+import useAuthStore from "../../utils/authStore";
 
 const UserButton = () => {
   const [open, setOpen] = useState(false);
-  const currentUser = true;
+  const navigate = useNavigate()
+   const {removeCurrentUser  , currentUser}  = useAuthStore() 
+   console.log(currentUser)
+   async function handleLogout(){
+   try{
+    const res  = await apiRequest.post('/users/logout' ,{})
+    toast.success(res.data.message)
+    navigate('/auth')
+     removeCurrentUser()
+   }
+   catch(err){
+    toast.error(err.response.data.message)
+    
+   }
+  }
+  
+
   return currentUser ? (
-    <div className="userButton">
+    <div className="userButton"  onClick={() => setOpen((val) =>!val)}  >
       <ImageKit
-        src="/general/noAvatar.png"
+        src={currentUser.img||'/general/noAvatar.png'}
         className="avatar"
         alt="user image"
         
       />
     
       <ImageKit
-            onClick={() => setOpen((val) =>!val)}  
+           
         src="/general/arrow.svg"
         alt="drop down "
         className="arrow"
@@ -23,16 +43,16 @@ const UserButton = () => {
         
       {open && (
         <div className="userOptionsMenu">
-          <div className="userOption ">Profile</div>
+          <Link to={`/${currentUser.username}`} className="userOption "> Profile  </Link>
           <div className="userOption">Settings</div>
-          <div className="userOption">Logout</div>
+          <div className="userOption" onClick={handleLogout}>Logout</div>
         </div>
       )}
     </div>
   ) : (
-    <a href="/signin" className="signIn">
+    <Link to="/auth" className="signIn">
       Sign In
-    </a>
+    </Link>
   );
 };
 

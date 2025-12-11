@@ -2,11 +2,14 @@ import { Link } from "react-router";
 import "./galleryItem.css";
 import ImageKit from "../../../components/imageKit/ImageKit";
 const GalleryItem = ({ item }) => {
-  //const optimizedHeight = 250*item.height  /  item.width
+  const optimizedHeight = (372 * item.height) / item.width;
   return (
-    <div className="galleryItem">
-      <ImageKit src={item.media} alt="painterest image" width={200} />
-      <Link to={`/pin/${item._id}`} className="overlay" />
+    <div
+      className="galleryItem"
+      style={{ gridRowEnd: `span ${Math.ceil(item.height / 100)}` }}
+    >
+      <ImageKit src={item.media} alt="painterest image" width={372}  h={optimizedHeight} />
+      <Link to={`/pins/${item._id}`} className="overlay" />
 
       <button className="save">save</button>
       <div className="actions">

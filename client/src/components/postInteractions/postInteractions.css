@@ -20,6 +20,14 @@
   cursor: pointer;
 }
 
+
+.postInteractions svg , .postInteractions img {
+  cursor: pointer;
+  
+}
+
+
+
 .postInteractions button:hover {
   color: #f1f1f1;
   background: rgb(255, 5, 5);

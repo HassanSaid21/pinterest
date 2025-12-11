@@ -6,7 +6,8 @@ const TopBar = () => {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search?search=${e.target[0].value}`);
+    console.log(e.target.search.value)
+    navigate(`/search?search=${e.target.search.value}`);
   };
   return (
     <div className="topBar">
@@ -18,7 +19,7 @@ const TopBar = () => {
             className="searchIcon"
             alt="search icon"
           />
-          <input type="text" placeholder="Search..." />
+          <input name="search" type="text" placeholder="Search..." />
         </form>
     
       {/* USER */}

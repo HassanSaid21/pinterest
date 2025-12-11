@@ -11,15 +11,18 @@
   border-radius: 32px;
   overflow: hidden;
   max-height: 80vh;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 .postImg {
   background-color: #c0a68c;
+  max-width:40%;
+
 }
 
 .postImg img {
   width: 100%;
-  object-fit: contain;
   height: 100%;
+  object-fit: cover;
 }
 
 .postDetails {
@@ -56,11 +59,17 @@
 }
 
 @media (max-width: 751px) {
+  .postImg {
+    max-width: unset;
+  }
   .postPage {
     gap: 16px;
+
   }
+  
   .postContainer {
     flex-direction: column;
     max-height: unset;
+    margin-bottom: 2rem;
   }
 }

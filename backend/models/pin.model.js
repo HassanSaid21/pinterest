@@ -23,7 +23,6 @@ const pinSchema = new mongoose.Schema({
    }  , 
   link:{
     type :String   ,
-    required :true 
    }  , 
    board:{
       type :Schema.Types.ObjectId   ,

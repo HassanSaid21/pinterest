@@ -1,0 +1,168 @@
+.editor {
+  display: flex;
+  gap: 16px;
+}
+
+.layers {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+.layers h3 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.layers p {
+  font-size: 14px;
+  color: gray;
+  margin-top: 4px;
+}
+
+.layer {
+  display: flex;
+  gap: 8px;
+
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+.layer:hover,
+.layer.selected {
+  background-color: #f0f0f0;
+}
+
+.layerImg {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.layerImg img {
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}
+.workspace {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9e9e9e9;
+  padding: 64px 0;
+}
+.canvas {
+  width: 375px;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.canvas img {
+  width: 100%;
+}
+
+.text {
+  position: absolute;
+  z-index: 999;
+  max-width: 100%;
+  border: 1px dashed red;
+}
+.text input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  cursor: grab;
+  width: 100%;
+}
+
+.deleteTextButton {
+  position: absolute;
+  top: -35px;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+}
+/*******************/
+.options {
+  flex: 1;
+  margin-top: 32px;
+}
+
+.editingOption {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+
+.editingOption span {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.editingOption input {
+  border: 1px soild #eadddd;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.textColor,
+.bgColor {
+  position: relative;
+}
+
+.previewColor {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.colorPicker {
+  position: absolute;
+  top: 120%;
+}
+
+.orientations,
+.sizes {
+  display: flex;
+  background-color: #e9e9e9;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px;
+  border-radius: 8px;
+  width: max-content;
+  
+}
+.size,
+.orientation {
+  padding: 8px;
+  border-radius: 8px;
+  min-width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.size.selected , .orientation.selected {
+  background: white; 
+  /* border: 2px solid rgb(38, 136, 241); */
+} 

@@ -1,18 +1,20 @@
-import { StrictMode } from "react";
+import { lazy, StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { RouterProvider } from "react-router/dom";
+import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router";
 import MainLayout from "./routes/layouts/MainLayout.jsx";
-import Homepage from "./routes/hompage/Homepage.jsx";
-import CreatePage from "./routes/createPage/CreatePage.jsx";
-import AuthPage from "./routes/authpage/AuthPage.jsx";
-import PostPage from "./routes/postPage/PostPage.jsx";
-import ProfilePage from "./routes/profilePage/ProfilePage.jsx";
-import SearchPage from "./routes/searchPage/searchPage.jsx";
 import { ImageKitProvider } from "@imagekit/react";
 import  {QueryClient , QueryClientProvider} from '@tanstack/react-query'
 
+const Homepage = lazy(() => import("./routes/hompage/Homepage.jsx"));
+const CreatePage = lazy(() => import("./routes/createPage/CreatePage.jsx"));
+const PostPage = lazy(() => import("./routes/postPage/PostPage.jsx"));
+const ProfilePage = lazy(() => import("./routes/profilePage/ProfilePage.jsx"));
+const SearchPage = lazy(() => import("./routes/searchPage/searchPage.jsx"));
+const AuthPage = lazy(() => import("./routes/authPage/AuthPage.jsx"));
+const NotFoundPage = lazy(() => import("./components/NotFoundPage.jsx"));
+import { ToastContainer } from 'react-toastify';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,18 +22,15 @@ const router = createBrowserRouter([
     children: [
       { path: "/", Component: Homepage },
        { path: "/create", Component: CreatePage },
-      { path: "/pin/:id", Component: PostPage },
-      { path: "/:username", Component: ProfilePage },
+      { path: "/pins/:id", Component: PostPage },
+      { path: "/:username", Component: ProfilePage  },
       { path: "/search", Component: SearchPage },
+      { path: "*", Component: NotFoundPage },
     ],
   },
   {
-    path: "auth",
+    path: "/auth",
     Component: AuthPage,
-    // children: [
-    //   { path: "login", Component: Login },
-    //   { path: "register", Component: Register },
-    // ],
   },
 ]);
 const URL = import.meta.env.VITE_URL_IK_ENDPOINT;
@@ -43,5 +42,6 @@ createRoot(document.getElementById("root")).render(
       <RouterProvider router={router} />
     </ImageKitProvider>
     </QueryClientProvider>
+    <ToastContainer position="top-center" autoClose={3000}  />
   </StrictMode>
 );

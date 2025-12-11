@@ -26,7 +26,7 @@
 /* individual comment */
 .comment {
   display: flex;
-  gap: 12px;
+  gap: 7px;
 }
 
 /* avatar image */
@@ -45,8 +45,11 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  
+  /* border: 1px solid red; */
+  flex: 1;
 }
+
+
 
 .commentUsername {
   font-weight: 500;
@@ -56,12 +59,36 @@
 .commentText {
   margin: 0;
   font-size: 14px;
-  color: #333;
+  color: #252424;
+  font-weight: 500;
 }
 
 .commentDate {
   font-size: 12px;
   color: #888;
+  font-weight: 450;
+}
+
+.deleteContainer {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+
+}
+.delete {
+ border-radius:50% ;
+ padding: 8px;
+ cursor: pointer;
+ transition: 0.3s linear all; 
+}
+
+.delete img  {
+  width: 20px;
+ height: 20px;
+} 
+.delete:hover {
+  background: rgba(255, 0, 0, 0.4);
+  transform: scale(1.1);
 }
 
 /* bottom form stays visible */
