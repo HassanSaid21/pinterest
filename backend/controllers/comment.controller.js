@@ -1,14 +1,20 @@
-import commentModel from '../models/comment.model.js'
+import commentModel from "../models/comment.model.js";
 
-export const getComments =async(req, res , next )=>{
+export const getComments = async (req, res, next) => {
+  try {
+    const { userId, pinId } = req.query;
 
-  const {userId  , pinId} = req.query
-  console.log(userId , pinId);
-  const comments =  await commentModel.find(pinId ? {pin:pinId}:userId?{user:userId}:{}).populate('user' ,' username displayName img').sort({createdAt:-1})
-  if(comments.length<0) return res.json('no comments yet')
+    const comments = await commentModel
+      .find(pinId ? { pin: pinId } : userId ? { user: userId } : {})
+      .populate("user", "username displayName img")
+      .sort({ createdAt: -1 });
 
-  return res.json(comments)
-}
+    return res.json(comments);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Failed to fetch comments" });
+  }
+};
 
 
 export const addComment = async (req, res, next) => {
@@ -29,7 +35,7 @@ export const addComment = async (req, res, next) => {
       pin,
       description: desc,
     });
-    console.log(comment);
+
     return res.status(201).json({
       message: "Comment added successfully",
       comment,

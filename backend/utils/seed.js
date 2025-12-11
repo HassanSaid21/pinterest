@@ -26,7 +26,7 @@ export const seedDB = async () => {
     users.push(await user.save());
   }
 
-   const boards = [];
+  const boards = [];
   for (const user of users) {
     for (let i = 1; i <= 10; i++) {
       const board = new Board({

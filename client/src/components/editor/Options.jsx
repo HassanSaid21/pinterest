@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import useEditoreStore from "../../utils/editorStore";
+import useEditorStore from "../../utils/editorStore";
 import { HexColorPicker } from "react-colorful";
 
 // --- Aspect Ratios ---
@@ -28,13 +28,13 @@ const calcHeight = (w, h) => (FIXED_WIDTH * h) / w;
 // ---------------------------------------------
 
 export default function Options({ previewImg }) {
-const {
-textOptions,
-setTextOptions,
-selectedLayer,
-canvasOptions,
-setCanvasOptions,
-} = useEditoreStore();
+  const {
+    textOptions,
+    setTextOptions,
+    selectedLayer,
+    canvasOptions,
+    setCanvasOptions,
+  } = useEditorStore();
 
 const [openPicker, setOpenPicker] = useState(null); // "text" | "canvas" | null
 

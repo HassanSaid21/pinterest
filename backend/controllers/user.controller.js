@@ -94,7 +94,7 @@ export const create = async (req, res, next) => {
     hashedPassword: await hash(password, 12),
   });
   
-  const token = jwt.sign({ userid: user._id }, process.env.JWT_SECRET);
+  const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
   res.cookie("token", token, {
     httpOnly: true, // prevents JS access
     secure: false, // true in production (HTTPS)

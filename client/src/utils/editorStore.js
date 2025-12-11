@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const useEditoreStore = create((set) => ({
+const useEditorStore = create((set) => ({
   selectedLayer: "canvas",
   textOptions: {
     text: "",
@@ -28,7 +28,6 @@ const useEditoreStore = create((set) => ({
       },
     }),
   setCanvasOptions: (newOptions) => set({ canvasOptions: newOptions }),
-
   resetStore: () => {
     set({
       textOptions: {
@@ -38,8 +37,8 @@ const useEditoreStore = create((set) => ({
         top: 0,
         left: 0,
       },
-      selectedLayer :'canvas' ,
-      canvasOptions :   {
+      selectedLayer: "canvas",
+      canvasOptions: {
         height: 0,
         orientation: "",
         backgroundColor: "#008080",
@@ -49,4 +48,4 @@ const useEditoreStore = create((set) => ({
   },
 }));
 
-export default useEditoreStore;
+export default useEditorStore;
