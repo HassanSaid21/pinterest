@@ -4,20 +4,20 @@ import { useNavigate } from "react-router";
 import useAuthStore from "../../utils/authStore";
 import { useEffect, useRef, useState } from "react";
 import Editor from "../../components/editor/Editor";
-import useEditoreStore from "../../utils/editorStore";
+import useEditorStore from "../../utils/editorStore";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "../../utils/fetch";
 
-// FIXED: CHANGE DIRECT REQUEST TO MUTATION
 const addPost = async (post) => {
   const res = await apiRequest.post("/pins", post);
   return res.data;
 };
+
 const CreatePage = () => {
   const formRef = useRef();
   const navigate = useNavigate();
   const { currentUser } = useAuthStore();
-  const { canvasOptions, textOptions, resetStore } = useEditoreStore();
+  const { canvasOptions, textOptions, resetStore } = useEditorStore();
   const [file, setFile] = useState();
   const [isEditing, setIsEditing] = useState(false);
   const [previewImg, setPreviewImg] = useState({

@@ -7,11 +7,11 @@ import { useNavigate } from "react-router";
 import useAuthStore from "../../utils/authStore";
 
 const AuthPage = () => {
-
-  const [isRregister, setIsRegister] = useState(false);
+  const [isRegister, setIsRegister] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const {setCurrentUser}= useAuthStore()
+  const { setCurrentUser } = useAuthStore();
+
   async function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -19,27 +19,26 @@ const AuthPage = () => {
 
     try {
       const res = await apiRequest.post(
-        `/users/${isRregister ? "create" : "login"}`,
+        `/users/${isRegister ? "create" : "login"}`,
         data
       );
-      const { message , user } = res.data;
+      const { message, user } = res.data;
       navigate("/");
       toast.success(message);
-      setCurrentUser(user)
+      setCurrentUser(user);
     } catch (err) {
       setError(err.response.data.message);
       toast.error(err.response.data.message);
     }
   }
+
   return (
     <div className="authPage">
       <div className="authContainer">
         <ImageKit src="general/logoBig.png" alt="big logo" />
-        <h1>
-          {isRregister ? "Create a new account" : "Login to your account"}
-        </h1>
+        <h1>{isRegister ? "Create a new account" : "Login to your account"}</h1>
 
-        {isRregister ? (
+        {isRegister ? (
           <form key="register" onSubmit={handleSubmit}>
             <div className="formGroup">
               <label htmlFor="Email">Email</label>
