@@ -1,11 +1,10 @@
-import { Schema } from "mongoose";
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const likeSchema = new Schema(
   {
     pin: {
       type: Schema.Types.ObjectId,
-      ref:"Pin",
+      ref: "Pin",
       required: true,
     },
     user: {

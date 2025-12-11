@@ -1,5 +1,3 @@
-// import Like from "../models/like.model.js";
-// import Save from "../models/save.model.js";
 import Board from "../models/board.model.js";
 import pinModel from "../models/pin.model.js";
 import sharp from "sharp";
@@ -50,22 +48,23 @@ export const getPin = async (req, res, next) => {
 /****************************************************** */
 
 export const createPin = async (req, res) => {
-  const {
-    title,
-    description,
-    link,
-    board,
-    tags,
-    textOptions,
-    canvasOptions,
-    newBoard,
-  } = req.body;
+  try {
+    const {
+      title,
+      description,
+      link,
+      board,
+      tags,
+      textOptions,
+      canvasOptions,
+      newBoard,
+    } = req.body;
 
-  const media = req.files.media;
+    const media = req.files?.media;
 
-  if ((!title, !description, !media)) {
-    return res.status(400).json({ message: "All fields are required!" });
-  }
+    if (!title || !description || !media) {
+      return res.status(400).json({ message: "All fields are required!" });
+    }
 
   const parsedTextOptions = JSON.parse(textOptions || "{}");
   const parsedCanvasOptions = JSON.parse(canvasOptions || "{}");
@@ -103,20 +102,6 @@ export const createPin = async (req, res) => {
   const textTopPosition = Math.round(
     (parsedTextOptions.top * height) / parsedCanvasOptions.height
   );
-
-  // const transformationString = `w-${width},h-${height}${
-  //   originalAspectRatio > clientAspectRatio ? ",cm-pad_resize" : ""
-  // },bg-${parsedCanvasOptions.backgroundColor.substring(1)}${
-  //   parsedTextOptions.text
-  //     ? `,l-text,i-${parsedTextOptions.text},fs-${
-  //         parsedTextOptions.fontSize * 2.1
-  //       },lx-${textLeftPosition},ly-${textTopPosition},co-${parsedTextOptions.color.substring(
-  //         1
-  //       )},l-end`
-  //     : ""
-  // }`;
-
-  // FIXED TRANSFORMATION STRING
 
   let croppingStrategy = "";
 
@@ -181,8 +166,12 @@ export const createPin = async (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      return res.status(500).json(err);
+      return res.status(500).json({ message: "Failed to upload image" });
     });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Failed to create pin" });
+  }
 };
 
 /*************************************************************** */
@@ -232,45 +221,35 @@ export const interactionCheck = async (req, res, next) => {
 /***************************************************************/
 
 export const interact = async (req, res) => {
-  const { id } = req.params;
+  try {
+    const { id } = req.params;
+    const { type } = req.body;
 
-  const { type } = req.body;
+    if (!type || (type !== "like" && type !== "save")) {
+      return res.status(400).json({ message: "Invalid interaction type" });
+    }
 
-  if (type === "like") {
-    const isLiked = await likeModel.findOne({
+    const Model = type === "like" ? likeModel : saveModel;
+    const interaction = await Model.findOne({
       pin: id,
       user: req.userId,
     });
 
-    if (isLiked) {
-      await likeModel.deleteOne({
+    if (interaction) {
+      await Model.deleteOne({
         pin: id,
         user: req.userId,
       });
     } else {
-      await likeModel.create({
+      await Model.create({
         pin: id,
         user: req.userId,
       });
     }
-  } else {
-    const isSaved = await   saveModel.findOne({
-      pin: id,
-      user: req.userId,
-    });
 
-    if (isSaved) {
-      await   saveModel.deleteOne({
-        pin: id,
-        user: req.userId,
-      });
-    } else {
-      await saveModel.create({
-        pin: id,
-        user: req.userId,
-      });
-    }
+    return res.status(200).json({ message: "Successful" });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Failed to process interaction" });
   }
-
-  return res.status(200).json({ message: "Successful" });
 };
